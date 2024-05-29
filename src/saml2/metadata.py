@@ -87,6 +87,8 @@ def create_metadata_string(
     sign=None,
     sign_alg=None,
     digest_alg=None,
+    cert_isfile=True,
+    keyfile_isfile=True
 ):
     valid_for = 0
     nspair = {"xs": "http://www.w3.org/2001/XMLSchema"}
@@ -103,8 +105,18 @@ def create_metadata_string(
     eds.append(entity_descriptor(config))
 
     conf = Config()
-    conf.key_file = config.key_file or keyfile
-    conf.cert_file = config.cert_file or cert
+    if config.key_file:
+        conf.key_file = config.key_file
+        conf.key_file_isfile = config.key_file_isfile
+    else:
+        conf.key_file = keyfile
+        conf.key_file = keyfile_isfile
+    if config.cert_file:
+        conf.cert_file = config.cert_file
+        conf.cert_file_isfile = config.cert_file_isfile
+    else:
+        conf.cert_file = cert
+        conf.cert_file_isfile = cert_isfile
     conf.xmlsec_binary = config.xmlsec_binary
     conf.crypto_backend = config.crypto_backend
     secc = security_context(conf)
@@ -704,14 +716,14 @@ def entity_descriptor(confd):
     enc_cert = None
     if confd.cert_file is not None:
         mycert = []
-        mycert.append(read_cert_from_file(confd.cert_file))
+        mycert.append(read_cert_from_file(confd.cert_file, cert_file_isfile=getattr(confd, "cert_file_isfile", True)))
         if confd.additional_cert_files is not None:
             for _cert_file in confd.additional_cert_files:
-                mycert.append(read_cert_from_file(_cert_file))
+                mycert.append(read_cert_from_file(_cert_file, cert_file_isfile=getattr(confd, "cert_file_isfile", True)))
     if confd.encryption_keypairs is not None:
         enc_cert = []
         for _encryption in confd.encryption_keypairs:
-            enc_cert.append(read_cert_from_file(_encryption["cert_file"]))
+            enc_cert.append(read_cert_from_file(_encryption["cert_file"], cert_file_isfile=_encryption.get("cert_file_isfile", True)))
 
     entd = md.EntityDescriptor()
     entd.entity_id = confd.entityid

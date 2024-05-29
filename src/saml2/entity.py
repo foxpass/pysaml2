@@ -158,8 +158,8 @@ class Entity(HTTPBase):
             if _val.startswith("http"):
                 r = requests.request("GET", _val, timeout=self.config.http_client_timeout)
                 if r.status_code == 200:
-                    tmp = make_temp(r.text, ".pem", False, self.config.delete_tmpfiles)
-                    setattr(self.config, item, tmp.name)
+                    setattr(self.config, item, r.text)
+                    setattr(self.config, item + "_isfile", False)
                 else:
                     raise Exception(f"Could not fetch certificate from {_val}")
 
@@ -170,6 +170,8 @@ class Entity(HTTPBase):
             self.config.key_file,
             self.config.cert_file,
             self.config.http_client_timeout,
+            key_file_isfile=self.config.key_file_isfile,
+            cert_file_isfile=self.config.cert_file_isfile
         )
 
         if self.config.vorg:
@@ -663,16 +665,12 @@ class Entity(HTTPBase):
         for _cert_name, _cert in _certs:
             wrapped_cert, unwrapped_cert = get_pem_wrapped_unwrapped(_cert)
             try:
-                tmp = make_temp(
-                    wrapped_cert.encode("ascii"),
-                    decode=False,
-                    delete_tmpfiles=self.config.delete_tmpfiles,
-                )
                 response = self.sec.encrypt_assertion(
                     response,
-                    tmp.name,
+                    wrapped_cert.encode("ascii"),
                     pre_encryption_part(key_name=_cert_name, encrypt_cert=unwrapped_cert),
                     node_xpath=node_xpath,
+                    enc_key_isfile=False
                 )
                 return response
             except Exception as ex:

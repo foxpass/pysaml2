@@ -779,16 +779,20 @@ class MetaDataFile(InMemoryMetaData):
     the SAML Metadata format.
     """
 
-    def __init__(self, attrc, filename=None, cert=None, **kwargs):
+    def __init__(self, attrc, filename=None, cert=None, filename_isfile=True, **kwargs):
         super().__init__(attrc, **kwargs)
         if not filename:
             raise SAMLError("No file specified.")
         self.filename = filename
+        self.filename_isfile = filename_isfile
         self.cert = cert
 
     def get_metadata_content(self):
-        with open(self.filename, "rb") as fp:
-            return fp.read()
+        if self.filename_isfile:
+            with open(self.filename, "rb") as fp:
+                return fp.read()
+        else:
+            return str.encode(self.filename)
 
     def load(self, *args, **kwargs):
         _txt = self.get_metadata_content()
@@ -1029,7 +1033,7 @@ class MetadataStore(MetaData):
         self.to_old = {}
         self.http_client_timeout = http_client_timeout
 
-    def load(self, *args, **kwargs):
+    def load(self, *args, isfile=True, **kwargs):
         if self.filter:
             _args = {"filter": self.filter}
         else:
@@ -1038,18 +1042,21 @@ class MetadataStore(MetaData):
         typ = args[0]
         if typ == "local":
             key = args[1]
-            # if library read every file in the library
-            if os.path.isdir(key):
-                files = [f for f in os.listdir(key) if isfile(join(key, f))]
-                for fil in files:
-                    _fil = join(key, fil)
-                    _md = MetaDataFile(self.attrc, _fil, **_args)
-                    _md.load()
-                    self.metadata[_fil] = _md
-                return
+            if isfile:
+                # if library read every file in the library
+                if os.path.isdir(key):
+                    files = [f for f in os.listdir(key) if isfile(join(key, f))]
+                    for fil in files:
+                        _fil = join(key, fil)
+                        _md = MetaDataFile(self.attrc, _fil, **_args)
+                        _md.load()
+                        self.metadata[_fil] = _md
+                    return
+                else:
+                    # else it's just a plain old file so read it
+                    _md = MetaDataFile(self.attrc, key, **_args)
             else:
-                # else it's just a plain old file so read it
-                _md = MetaDataFile(self.attrc, key, **_args)
+                _md = MetaDataFile(self.attrc, key, filename_isfile=False, **_args)
         elif typ == "inline":
             self.ii += 1
             key = self.ii
@@ -1112,7 +1119,7 @@ class MetadataStore(MetaData):
             self.metadata = old_metadata
             raise e
 
-    def imp(self, spec):
+    def imp(self, spec, isfile=True):
         # This serves as a backwards compatibility
         if type(spec) is dict:
             # Old style...
@@ -1121,9 +1128,9 @@ class MetadataStore(MetaData):
                     if isinstance(val, dict):
                         if not self.check_validity:
                             val["check_validity"] = False
-                        self.load(key, **val)
+                        self.load(key, **val, isfile=isfile)
                     else:
-                        self.load(key, val)
+                        self.load(key, val, isfile=isfile)
         else:
             for item in spec:
                 try:

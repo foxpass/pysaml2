@@ -427,8 +427,8 @@ class NameIDType_(SamlBase):
         self.sp_provided_id = sp_provided_id
 
 
-def name_id_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDType_, xml_string)
+def name_id_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class EncryptedElementType_(SamlBase):
@@ -455,8 +455,8 @@ class EncryptedElementType_(SamlBase):
         self.encrypted_key = encrypted_key or []
 
 
-def encrypted_element_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(EncryptedElementType_, xml_string)
+def encrypted_element_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(EncryptedElementType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class EncryptedID(EncryptedElementType_):
@@ -470,8 +470,8 @@ class EncryptedID(EncryptedElementType_):
     c_cardinality = EncryptedElementType_.c_cardinality.copy()
 
 
-def encrypted_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(EncryptedID, xml_string)
+def encrypted_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(EncryptedID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Issuer(NameIDType_):
@@ -485,8 +485,8 @@ class Issuer(NameIDType_):
     c_cardinality = NameIDType_.c_cardinality.copy()
 
 
-def issuer_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Issuer, xml_string)
+def issuer_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Issuer, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AssertionIDRef(SamlBase):
@@ -501,8 +501,8 @@ class AssertionIDRef(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def assertion_id_ref_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AssertionIDRef, xml_string)
+def assertion_id_ref_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AssertionIDRef, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AssertionURIRef(SamlBase):
@@ -517,8 +517,8 @@ class AssertionURIRef(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def assertion_uri_ref_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AssertionURIRef, xml_string)
+def assertion_uri_ref_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AssertionURIRef, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectConfirmationDataType_(SamlBase):
@@ -560,8 +560,8 @@ class SubjectConfirmationDataType_(SamlBase):
         self.address = address
 
 
-def subject_confirmation_data_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectConfirmationDataType_, xml_string)
+def subject_confirmation_data_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectConfirmationDataType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class KeyInfoConfirmationDataType_(SamlBase):
@@ -585,8 +585,8 @@ class KeyInfoConfirmationDataType_(SamlBase):
         self.key_info = key_info or []
 
 
-def key_info_confirmation_data_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(KeyInfoConfirmationDataType_, xml_string)
+def key_info_confirmation_data_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(KeyInfoConfirmationDataType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ConditionAbstractType_(SamlBase):
@@ -613,8 +613,8 @@ class Audience(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def audience_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Audience, xml_string)
+def audience_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Audience, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class OneTimeUseType_(ConditionAbstractType_):
@@ -628,8 +628,8 @@ class OneTimeUseType_(ConditionAbstractType_):
     c_cardinality = ConditionAbstractType_.c_cardinality.copy()
 
 
-def one_time_use_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(OneTimeUseType_, xml_string)
+def one_time_use_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(OneTimeUseType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ProxyRestrictionType_(ConditionAbstractType_):
@@ -654,8 +654,8 @@ class ProxyRestrictionType_(ConditionAbstractType_):
         self.count = count
 
 
-def proxy_restriction_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ProxyRestrictionType_, xml_string)
+def proxy_restriction_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ProxyRestrictionType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class EncryptedAssertion(EncryptedElementType_):
@@ -669,8 +669,8 @@ class EncryptedAssertion(EncryptedElementType_):
     c_cardinality = EncryptedElementType_.c_cardinality.copy()
 
 
-def encrypted_assertion_from_string(xml_string):
-    return saml2.create_class_from_xml_string(EncryptedAssertion, xml_string)
+def encrypted_assertion_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(EncryptedAssertion, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatementAbstractType_(SamlBase):
@@ -704,8 +704,8 @@ class SubjectLocalityType_(SamlBase):
         self.dns_name = dns_name
 
 
-def subject_locality_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectLocalityType_, xml_string)
+def subject_locality_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectLocalityType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContextClassRef(SamlBase):
@@ -720,8 +720,8 @@ class AuthnContextClassRef(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def authn_context_class_ref_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContextClassRef, xml_string)
+def authn_context_class_ref_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContextClassRef, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContextDeclRef(SamlBase):
@@ -736,8 +736,8 @@ class AuthnContextDeclRef(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def authn_context_decl_ref_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContextDeclRef, xml_string)
+def authn_context_decl_ref_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContextDeclRef, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContextDecl(SamlBase):
@@ -752,8 +752,8 @@ class AuthnContextDecl(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def authn_context_decl_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContextDecl, xml_string)
+def authn_context_decl_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContextDecl, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthenticatingAuthority(SamlBase):
@@ -769,8 +769,8 @@ class AuthenticatingAuthority(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def authenticating_authority_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthenticatingAuthority, xml_string)
+def authenticating_authority_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthenticatingAuthority, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class DecisionType_(SamlBase):
@@ -785,8 +785,8 @@ class DecisionType_(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def decision_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(DecisionType_, xml_string)
+def decision_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(DecisionType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ActionType_(SamlBase):
@@ -808,8 +808,8 @@ class ActionType_(SamlBase):
         self.namespace = namespace
 
 
-def action_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ActionType_, xml_string)
+def action_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ActionType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeValue(AttributeValueBase):
@@ -824,8 +824,8 @@ class AttributeValue(AttributeValueBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def attribute_value_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeValue, xml_string)
+def attribute_value_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeValue, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class EncryptedAttribute(EncryptedElementType_):
@@ -839,8 +839,8 @@ class EncryptedAttribute(EncryptedElementType_):
     c_cardinality = EncryptedElementType_.c_cardinality.copy()
 
 
-def encrypted_attribute_from_string(xml_string):
-    return saml2.create_class_from_xml_string(EncryptedAttribute, xml_string)
+def encrypted_attribute_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(EncryptedAttribute, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class BaseID(BaseIDAbstractType_):
@@ -854,8 +854,8 @@ class BaseID(BaseIDAbstractType_):
     c_cardinality = BaseIDAbstractType_.c_cardinality.copy()
 
 
-def base_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(BaseID, xml_string)
+def base_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(BaseID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameID(NameIDType_):
@@ -878,8 +878,8 @@ class NameID(NameIDType_):
     c_cardinality = NameIDType_.c_cardinality.copy()
 
 
-def name_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameID, xml_string)
+def name_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectConfirmationData(SubjectConfirmationDataType_):
@@ -894,8 +894,8 @@ class SubjectConfirmationData(SubjectConfirmationDataType_):
     c_cardinality = SubjectConfirmationDataType_.c_cardinality.copy()
 
 
-def subject_confirmation_data_from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectConfirmationData, xml_string)
+def subject_confirmation_data_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectConfirmationData, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Condition(ConditionAbstractType_):
@@ -909,8 +909,8 @@ class Condition(ConditionAbstractType_):
     c_cardinality = ConditionAbstractType_.c_cardinality.copy()
 
 
-def condition_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Condition, xml_string)
+def condition_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Condition, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AudienceRestrictionType_(ConditionAbstractType_):
@@ -934,8 +934,8 @@ class AudienceRestrictionType_(ConditionAbstractType_):
         self.audience = audience or []
 
 
-def audience_restriction_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AudienceRestrictionType_, xml_string)
+def audience_restriction_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AudienceRestrictionType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class OneTimeUse(OneTimeUseType_):
@@ -949,8 +949,8 @@ class OneTimeUse(OneTimeUseType_):
     c_cardinality = OneTimeUseType_.c_cardinality.copy()
 
 
-def one_time_use_from_string(xml_string):
-    return saml2.create_class_from_xml_string(OneTimeUse, xml_string)
+def one_time_use_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(OneTimeUse, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ProxyRestriction(ProxyRestrictionType_):
@@ -964,8 +964,8 @@ class ProxyRestriction(ProxyRestrictionType_):
     c_cardinality = ProxyRestrictionType_.c_cardinality.copy()
 
 
-def proxy_restriction_from_string(xml_string):
-    return saml2.create_class_from_xml_string(ProxyRestriction, xml_string)
+def proxy_restriction_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ProxyRestriction, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Statement(StatementAbstractType_):
@@ -979,8 +979,8 @@ class Statement(StatementAbstractType_):
     c_cardinality = StatementAbstractType_.c_cardinality.copy()
 
 
-def statement_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Statement, xml_string)
+def statement_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Statement, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectLocality(SubjectLocalityType_):
@@ -1006,8 +1006,8 @@ class SubjectLocality(SubjectLocalityType_):
         return SubjectLocalityType_.verify(self)
 
 
-def subject_locality_from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectLocality, xml_string)
+def subject_locality_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectLocality, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContextType_(SamlBase):
@@ -1063,8 +1063,8 @@ class AuthnContextType_(SamlBase):
         return SamlBase.verify(self)
 
 
-def authn_context_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContextType_, xml_string)
+def authn_context_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContextType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Action(ActionType_):
@@ -1078,8 +1078,8 @@ class Action(ActionType_):
     c_cardinality = ActionType_.c_cardinality.copy()
 
 
-def action_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Action, xml_string)
+def action_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Action, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeType_(SamlBase):
@@ -1123,8 +1123,8 @@ class AttributeType_(SamlBase):
         SamlBase.harvest_element_tree(self, tree)
 
 
-def attribute_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeType_, xml_string)
+def attribute_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectConfirmationType_(SamlBase):
@@ -1172,8 +1172,8 @@ class SubjectConfirmationType_(SamlBase):
         self.method = method
 
 
-def subject_confirmation_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectConfirmationType_, xml_string)
+def subject_confirmation_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectConfirmationType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AudienceRestriction(AudienceRestrictionType_):
@@ -1187,8 +1187,8 @@ class AudienceRestriction(AudienceRestrictionType_):
     c_cardinality = AudienceRestrictionType_.c_cardinality.copy()
 
 
-def audience_restriction_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AudienceRestriction, xml_string)
+def audience_restriction_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AudienceRestriction, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContext(AuthnContextType_):
@@ -1202,8 +1202,8 @@ class AuthnContext(AuthnContextType_):
     c_cardinality = AuthnContextType_.c_cardinality.copy()
 
 
-def authn_context_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContext, xml_string)
+def authn_context_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContext, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Attribute(AttributeType_):
@@ -1217,8 +1217,8 @@ class Attribute(AttributeType_):
     c_cardinality = AttributeType_.c_cardinality.copy()
 
 
-def attribute_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Attribute, xml_string)
+def attribute_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Attribute, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectConfirmation(SubjectConfirmationType_):
@@ -1232,8 +1232,8 @@ class SubjectConfirmation(SubjectConfirmationType_):
     c_cardinality = SubjectConfirmationType_.c_cardinality.copy()
 
 
-def subject_confirmation_from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectConfirmation, xml_string)
+def subject_confirmation_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectConfirmation, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ConditionsType_(SamlBase):
@@ -1293,8 +1293,8 @@ class ConditionsType_(SamlBase):
         return SamlBase.verify(self)
 
 
-def conditions_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ConditionsType_, xml_string)
+def conditions_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ConditionsType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnStatementType_(StatementAbstractType_):
@@ -1335,8 +1335,8 @@ class AuthnStatementType_(StatementAbstractType_):
         self.session_not_on_or_after = session_not_on_or_after
 
 
-def authn_statement_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnStatementType_, xml_string)
+def authn_statement_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnStatementType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeStatementType_(StatementAbstractType_):
@@ -1368,8 +1368,8 @@ class AttributeStatementType_(StatementAbstractType_):
         self.encrypted_attribute = encrypted_attribute or []
 
 
-def attribute_statement_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeStatementType_, xml_string)
+def attribute_statement_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeStatementType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectType_(SamlBase):
@@ -1413,8 +1413,8 @@ class SubjectType_(SamlBase):
         self.subject_confirmation = subject_confirmation or []
 
 
-def subject_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectType_, xml_string)
+def subject_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Conditions(ConditionsType_):
@@ -1428,8 +1428,8 @@ class Conditions(ConditionsType_):
     c_cardinality = ConditionsType_.c_cardinality.copy()
 
 
-def conditions_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Conditions, xml_string)
+def conditions_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Conditions, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnStatement(AuthnStatementType_):
@@ -1443,8 +1443,8 @@ class AuthnStatement(AuthnStatementType_):
     c_cardinality = AuthnStatementType_.c_cardinality.copy()
 
 
-def authn_statement_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnStatement, xml_string)
+def authn_statement_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnStatement, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeStatement(AttributeStatementType_):
@@ -1458,8 +1458,8 @@ class AttributeStatement(AttributeStatementType_):
     c_cardinality = AttributeStatementType_.c_cardinality.copy()
 
 
-def attribute_statement_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeStatement, xml_string)
+def attribute_statement_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeStatement, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Subject(SubjectType_):
@@ -1473,8 +1473,8 @@ class Subject(SubjectType_):
     c_cardinality = SubjectType_.c_cardinality.copy()
 
 
-def subject_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Subject, xml_string)
+def subject_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Subject, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 # ..................
@@ -1520,8 +1520,8 @@ class EvidenceType_(SamlBase):
         self.encrypted_assertion = encrypted_assertion or []
 
 
-def evidence_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(EvidenceType_, xml_string)
+def evidence_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(EvidenceType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Evidence(EvidenceType_):
@@ -1535,8 +1535,8 @@ class Evidence(EvidenceType_):
     c_cardinality = EvidenceType_.c_cardinality.copy()
 
 
-def evidence_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Evidence, xml_string)
+def evidence_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Evidence, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthzDecisionStatementType_(StatementAbstractType_):
@@ -1576,8 +1576,8 @@ class AuthzDecisionStatementType_(StatementAbstractType_):
         self.decision = decision
 
 
-def authz_decision_statement_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthzDecisionStatementType_, xml_string)
+def authz_decision_statement_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthzDecisionStatementType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthzDecisionStatement(AuthzDecisionStatementType_):
@@ -1592,8 +1592,8 @@ class AuthzDecisionStatement(AuthzDecisionStatementType_):
     c_cardinality = AuthzDecisionStatementType_.c_cardinality.copy()
 
 
-def authz_decision_statement_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthzDecisionStatement, xml_string)
+def authz_decision_statement_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthzDecisionStatement, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 # ..................
@@ -1693,8 +1693,8 @@ class AssertionType_(SamlBase):
         return SamlBase.verify(self)
 
 
-def assertion_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AssertionType_, xml_string)
+def assertion_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AssertionType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Assertion(AssertionType_):
@@ -1708,8 +1708,8 @@ class Assertion(AssertionType_):
     c_cardinality = AssertionType_.c_cardinality.copy()
 
 
-def assertion_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Assertion, xml_string)
+def assertion_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Assertion, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AdviceType_(SamlBase):
@@ -1754,8 +1754,8 @@ class AdviceType_(SamlBase):
         self.encrypted_assertion = encrypted_assertion or []
 
 
-def advice_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AdviceType_, xml_string)
+def advice_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AdviceType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Advice(AdviceType_):
@@ -1769,8 +1769,8 @@ class Advice(AdviceType_):
     c_cardinality = AdviceType_.c_cardinality.copy()
 
 
-def advice_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Advice, xml_string)
+def advice_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Advice, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

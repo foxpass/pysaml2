@@ -68,7 +68,7 @@ def class_name(instance):
     return f"{instance.c_namespace}:{instance.c_tag}"
 
 
-def create_class_from_xml_string(target_class, xml_string):
+def create_class_from_xml_string(target_class, xml_string, xml_string_isfile=False):
     """Creates an instance of the target class from a string.
 
     :param target_class: The class which will be instantiated and populated
@@ -84,7 +84,10 @@ def create_class_from_xml_string(target_class, xml_string):
     """
     if not isinstance(xml_string, bytes):
         xml_string = xml_string.encode("utf-8")
-    tree = defusedxml.ElementTree.fromstring(xml_string)
+    if xml_string_isfile:
+        tree = defusedxml.ElementTree.parse(xml_string).getroot()
+    else:
+        tree = defusedxml.ElementTree.fromstring(xml_string)
     return create_class_from_element_tree(target_class, tree)
 
 

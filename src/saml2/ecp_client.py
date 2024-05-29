@@ -52,6 +52,8 @@ class Client(Entity):
         key_file=None,
         cert_file=None,
         config=None,
+        key_file_isfile=True,
+        cert_file_isfile=True
     ):
         """
         :param user: user name
@@ -78,6 +80,8 @@ class Client(Entity):
             config.cert_file = cert_file
             config.ca_certs = ca_certs
             config.xmlsec_binary = xmlsec_binary
+            config.key_file_isfile = key_file_isfile
+            config.cert_file_isfile = cert_file_isfile
 
         Entity.__init__(self, "sp", config)
         self._idp = idp

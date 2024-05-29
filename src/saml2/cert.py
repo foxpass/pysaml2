@@ -336,7 +336,7 @@ class OpenSSLWrapper:
             return False, f"Certificate is not valid for an unknown reason. {str(e)}"
 
 
-def read_cert_from_file(cert_file, cert_type="pem"):
+def read_cert_from_file(cert_file, cert_type="pem", cert_file_isfile=True):
     """Read a certificate from a file.
 
     If there are multiple certificates in the file, the first is returned.
@@ -348,8 +348,11 @@ def read_cert_from_file(cert_file, cert_type="pem"):
     if not cert_file:
         return ""
 
-    with open(cert_file, "rb") as fp:
-        data = fp.read()
+    if cert_file_isfile:
+        with open(cert_file, "rb") as fp:
+            data = fp.read()
+    else:
+        data = str.encode(cert_file)
 
     try:
         cert = saml2.cryptography.pki.load_x509_certificate(data, cert_type)

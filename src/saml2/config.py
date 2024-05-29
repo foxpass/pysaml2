@@ -76,6 +76,8 @@ COMMON_ARGS = [
     "signing_algorithm",
     "digest_algorithm",
     "http_client_timeout",
+    "key_file_isfile",
+    "cert_file_isfile"
 ]
 
 SP_ARGS = [
@@ -230,6 +232,8 @@ class Config:
         self.signing_algorithm = None
         self.digest_algorithm = None
         self.http_client_timeout = None
+        self.key_file_isfile = True
+        self.cert_file_isfile = True
 
     def setattr(self, context, attr, val):
         if context == "":
@@ -269,7 +273,7 @@ class Config:
         self.setattr("", "attribute_converters", acs)
 
         try:
-            self.setattr("", "metadata", self.load_metadata(cnf["metadata"]))
+            self.setattr("", "metadata", self.load_metadata(cnf["metadata"], isfile=cnf.get("metadata_isfile", True)))
         except KeyError:
             pass
 
@@ -366,7 +370,7 @@ class Config:
         mod = self._load(config_filename)
         return self.load(copy.deepcopy(mod.CONFIG))
 
-    def load_metadata(self, metadata_conf):
+    def load_metadata(self, metadata_conf, isfile=True):
         """Loads metadata into an internal structure"""
 
         acs = self.attribute_converters
@@ -389,7 +393,7 @@ class Config:
             disable_ssl_certificate_validation=disable_validation,
             http_client_timeout=self.http_client_timeout,
         )
-        mds.imp(metadata_conf)
+        mds.imp(metadata_conf, isfile=isfile)
         return mds
 
     def endpoint(self, service, binding=None, context=None):

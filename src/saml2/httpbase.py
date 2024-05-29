@@ -14,6 +14,7 @@ from saml2 import SAMLError
 from saml2 import class_name
 from saml2.pack import make_soap_enveloped_saml_thingy
 from saml2.time_util import utc_now
+from saml2.sigver import make_temp
 
 
 logger = logging.getLogger(__name__)
@@ -95,7 +96,7 @@ def dict2set_list(dic):
 
 
 class HTTPBase:
-    def __init__(self, verify=True, ca_bundle=None, key_file=None, cert_file=None, http_client_timeout=None):
+    def __init__(self, verify=True, ca_bundle=None, key_file=None, cert_file=None, http_client_timeout=None, key_file_isfile=True, cert_file_isfile=True):
         self.request_args = {"allow_redirects": False}
         # self.cookies = {}
         self.cookiejar = http_cookiejar.CookieJar()
@@ -105,6 +106,10 @@ class HTTPBase:
             if ca_bundle:
                 self.request_args["verify"] = ca_bundle
             if key_file:
+                if not key_file_isfile:
+                    key_file = make_temp(key_file, suffix=".key", decode=False, delete_tmpfiles=True)
+                if not cert_file_isfile:
+                    cert_file = make_temp(cert_file, suffix=".crt", decode=False, delete_tmpfiles=True)
                 self.request_args["cert"] = (cert_file, key_file)
         self.request_args["timeout"] = http_client_timeout
 

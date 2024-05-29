@@ -49,8 +49,8 @@ class ExtensionsType_(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def extensions_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ExtensionsType_, xml_string)
+def extensions_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ExtensionsType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusMessage(SamlBase):
@@ -65,8 +65,8 @@ class StatusMessage(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def status_message_from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusMessage, xml_string)
+def status_message_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusMessage, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusDetailType_(SamlBase):
@@ -81,8 +81,8 @@ class StatusDetailType_(SamlBase):
     c_any = {"namespace": "##any", "processContents": "lax", "minOccurs": "0", "maxOccurs": "unbounded"}
 
 
-def status_detail_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusDetailType_, xml_string)
+def status_detail_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusDetailType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnContextComparisonType_(SamlBase):
@@ -98,8 +98,8 @@ class AuthnContextComparisonType_(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def authn_context_comparison_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnContextComparisonType_, xml_string)
+def authn_context_comparison_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnContextComparisonType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDPolicyType_(SamlBase):
@@ -135,8 +135,8 @@ class NameIDPolicyType_(SamlBase):
         self.allow_create = allow_create
 
 
-def name_id_policy_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDPolicyType_, xml_string)
+def name_id_policy_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDPolicyType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class RequesterID(SamlBase):
@@ -151,8 +151,8 @@ class RequesterID(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def requester_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(RequesterID, xml_string)
+def requester_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(RequesterID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class IDPEntryType_(SamlBase):
@@ -179,8 +179,8 @@ class IDPEntryType_(SamlBase):
         self.loc = loc
 
 
-def idp_entry_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(IDPEntryType_, xml_string)
+def idp_entry_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(IDPEntryType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class GetComplete(SamlBase):
@@ -195,8 +195,8 @@ class GetComplete(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def get_complete_from_string(xml_string):
-    return saml2.create_class_from_xml_string(GetComplete, xml_string)
+def get_complete_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(GetComplete, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Artifact(SamlBase):
@@ -211,8 +211,8 @@ class Artifact(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def artifact_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Artifact, xml_string)
+def artifact_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Artifact, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NewID(SamlBase):
@@ -227,8 +227,8 @@ class NewID(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def new_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NewID, xml_string)
+def new_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NewID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NewEncryptedID(saml.EncryptedElementType_):
@@ -242,8 +242,8 @@ class NewEncryptedID(saml.EncryptedElementType_):
     c_cardinality = saml.EncryptedElementType_.c_cardinality.copy()
 
 
-def new_encrypted_id_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NewEncryptedID, xml_string)
+def new_encrypted_id_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NewEncryptedID, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class TerminateType_(SamlBase):
@@ -257,8 +257,8 @@ class TerminateType_(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def terminate_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(TerminateType_, xml_string)
+def terminate_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(TerminateType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SessionIndex(SamlBase):
@@ -273,8 +273,8 @@ class SessionIndex(SamlBase):
     c_cardinality = SamlBase.c_cardinality.copy()
 
 
-def session_index_from_string(xml_string):
-    return saml2.create_class_from_xml_string(SessionIndex, xml_string)
+def session_index_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SessionIndex, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Extensions(ExtensionsType_):
@@ -288,8 +288,8 @@ class Extensions(ExtensionsType_):
     c_cardinality = ExtensionsType_.c_cardinality.copy()
 
 
-def extensions_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Extensions, xml_string)
+def extensions_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Extensions, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusDetail(StatusDetailType_):
@@ -303,8 +303,8 @@ class StatusDetail(StatusDetailType_):
     c_cardinality = StatusDetailType_.c_cardinality.copy()
 
 
-def status_detail_from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusDetail, xml_string)
+def status_detail_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusDetail, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class RequestAbstractType_(SamlBase):
@@ -403,8 +403,8 @@ class AssertionIDRequestType_(RequestAbstractType_):
         self.assertion_id_ref = assertion_id_ref or []
 
 
-def assertion_id_request_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AssertionIDRequestType_, xml_string)
+def assertion_id_request_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AssertionIDRequestType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectQueryAbstractType_(RequestAbstractType_):
@@ -493,8 +493,8 @@ class RequestedAuthnContextType_(SamlBase):
         self.comparison = comparison
 
 
-def requested_authn_context_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(RequestedAuthnContextType_, xml_string)
+def requested_authn_context_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(RequestedAuthnContextType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeQueryType_(SubjectQueryAbstractType_):
@@ -544,8 +544,8 @@ class AttributeQueryType_(SubjectQueryAbstractType_):
         self.attribute = attribute or []
 
 
-def attribute_query_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeQueryType_, xml_string)
+def attribute_query_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeQueryType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthzDecisionQueryType_(SubjectQueryAbstractType_):
@@ -603,8 +603,8 @@ class AuthzDecisionQueryType_(SubjectQueryAbstractType_):
         self.resource = resource
 
 
-def authz_decision_query_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthzDecisionQueryType_, xml_string)
+def authz_decision_query_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthzDecisionQueryType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDPolicy(NameIDPolicyType_):
@@ -618,8 +618,8 @@ class NameIDPolicy(NameIDPolicyType_):
     c_cardinality = NameIDPolicyType_.c_cardinality.copy()
 
 
-def name_id_policy_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDPolicy, xml_string)
+def name_id_policy_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDPolicy, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class IDPEntry(IDPEntryType_):
@@ -633,8 +633,8 @@ class IDPEntry(IDPEntryType_):
     c_cardinality = IDPEntryType_.c_cardinality.copy()
 
 
-def idp_entry_from_string(xml_string):
-    return saml2.create_class_from_xml_string(IDPEntry, xml_string)
+def idp_entry_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(IDPEntry, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ArtifactResolveType_(RequestAbstractType_):
@@ -681,8 +681,8 @@ class ArtifactResolveType_(RequestAbstractType_):
         self.artifact = artifact
 
 
-def artifact_resolve_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ArtifactResolveType_, xml_string)
+def artifact_resolve_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ArtifactResolveType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Terminate(TerminateType_):
@@ -696,8 +696,8 @@ class Terminate(TerminateType_):
     c_cardinality = TerminateType_.c_cardinality.copy()
 
 
-def terminate_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Terminate, xml_string)
+def terminate_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Terminate, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class LogoutRequestType_(RequestAbstractType_):
@@ -763,8 +763,8 @@ class LogoutRequestType_(RequestAbstractType_):
         self.not_on_or_after = not_on_or_after
 
 
-def logout_request_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(LogoutRequestType_, xml_string)
+def logout_request_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(LogoutRequestType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDMappingRequestType_(RequestAbstractType_):
@@ -824,8 +824,8 @@ class NameIDMappingRequestType_(RequestAbstractType_):
         self.name_id_policy = name_id_policy
 
 
-def name_id_mapping_request_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDMappingRequestType_, xml_string)
+def name_id_mapping_request_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDMappingRequestType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AssertionIDRequest(AssertionIDRequestType_):
@@ -839,8 +839,8 @@ class AssertionIDRequest(AssertionIDRequestType_):
     c_cardinality = AssertionIDRequestType_.c_cardinality.copy()
 
 
-def assertion_id_request_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AssertionIDRequest, xml_string)
+def assertion_id_request_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AssertionIDRequest, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class SubjectQuery(SubjectQueryAbstractType_):
@@ -854,8 +854,8 @@ class SubjectQuery(SubjectQueryAbstractType_):
     c_cardinality = SubjectQueryAbstractType_.c_cardinality.copy()
 
 
-def subject_query_from_string(xml_string):
-    return saml2.create_class_from_xml_string(SubjectQuery, xml_string)
+def subject_query_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(SubjectQuery, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class RequestedAuthnContext(RequestedAuthnContextType_):
@@ -871,8 +871,8 @@ class RequestedAuthnContext(RequestedAuthnContextType_):
     c_cardinality = RequestedAuthnContextType_.c_cardinality.copy()
 
 
-def requested_authn_context_from_string(xml_string):
-    return saml2.create_class_from_xml_string(RequestedAuthnContext, xml_string)
+def requested_authn_context_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(RequestedAuthnContext, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AttributeQuery(AttributeQueryType_):
@@ -886,8 +886,8 @@ class AttributeQuery(AttributeQueryType_):
     c_cardinality = AttributeQueryType_.c_cardinality.copy()
 
 
-def attribute_query_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AttributeQuery, xml_string)
+def attribute_query_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AttributeQuery, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthzDecisionQuery(AuthzDecisionQueryType_):
@@ -901,8 +901,8 @@ class AuthzDecisionQuery(AuthzDecisionQueryType_):
     c_cardinality = AuthzDecisionQueryType_.c_cardinality.copy()
 
 
-def authz_decision_query_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthzDecisionQuery, xml_string)
+def authz_decision_query_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthzDecisionQuery, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class IDPListType_(SamlBase):
@@ -930,8 +930,8 @@ class IDPListType_(SamlBase):
         self.get_complete = get_complete
 
 
-def idp_list_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(IDPListType_, xml_string)
+def idp_list_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(IDPListType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ArtifactResolve(ArtifactResolveType_):
@@ -945,8 +945,8 @@ class ArtifactResolve(ArtifactResolveType_):
     c_cardinality = ArtifactResolveType_.c_cardinality.copy()
 
 
-def artifact_resolve_from_string(xml_string):
-    return saml2.create_class_from_xml_string(ArtifactResolve, xml_string)
+def artifact_resolve_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ArtifactResolve, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ManageNameIDRequestType_(RequestAbstractType_):
@@ -1012,8 +1012,8 @@ class ManageNameIDRequestType_(RequestAbstractType_):
         self.terminate = terminate
 
 
-def manage_name_id_request_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ManageNameIDRequestType_, xml_string)
+def manage_name_id_request_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ManageNameIDRequestType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class LogoutRequest(LogoutRequestType_):
@@ -1027,8 +1027,8 @@ class LogoutRequest(LogoutRequestType_):
     c_cardinality = LogoutRequestType_.c_cardinality.copy()
 
 
-def logout_request_from_string(xml_string):
-    return saml2.create_class_from_xml_string(LogoutRequest, xml_string)
+def logout_request_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(LogoutRequest, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDMappingRequest(NameIDMappingRequestType_):
@@ -1042,8 +1042,8 @@ class NameIDMappingRequest(NameIDMappingRequestType_):
     c_cardinality = NameIDMappingRequestType_.c_cardinality.copy()
 
 
-def name_id_mapping_request_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDMappingRequest, xml_string)
+def name_id_mapping_request_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDMappingRequest, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnQueryType_(SubjectQueryAbstractType_):
@@ -1099,8 +1099,8 @@ class AuthnQueryType_(SubjectQueryAbstractType_):
         self.session_index = session_index
 
 
-def authn_query_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnQueryType_, xml_string)
+def authn_query_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnQueryType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class IDPList(IDPListType_):
@@ -1114,8 +1114,8 @@ class IDPList(IDPListType_):
     c_cardinality = IDPListType_.c_cardinality.copy()
 
 
-def idp_list_from_string(xml_string):
-    return saml2.create_class_from_xml_string(IDPList, xml_string)
+def idp_list_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(IDPList, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ManageNameIDRequest(ManageNameIDRequestType_):
@@ -1129,8 +1129,8 @@ class ManageNameIDRequest(ManageNameIDRequestType_):
     c_cardinality = ManageNameIDRequestType_.c_cardinality.copy()
 
 
-def manage_name_id_request_from_string(xml_string):
-    return saml2.create_class_from_xml_string(ManageNameIDRequest, xml_string)
+def manage_name_id_request_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ManageNameIDRequest, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnQuery(AuthnQueryType_):
@@ -1144,8 +1144,8 @@ class AuthnQuery(AuthnQueryType_):
     c_cardinality = AuthnQueryType_.c_cardinality.copy()
 
 
-def authn_query_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnQuery, xml_string)
+def authn_query_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnQuery, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ScopingType_(SamlBase):
@@ -1181,8 +1181,8 @@ class ScopingType_(SamlBase):
         self.proxy_count = proxy_count
 
 
-def scoping_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ScopingType_, xml_string)
+def scoping_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ScopingType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Scoping(ScopingType_):
@@ -1196,8 +1196,8 @@ class Scoping(ScopingType_):
     c_cardinality = ScopingType_.c_cardinality.copy()
 
 
-def scoping_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Scoping, xml_string)
+def scoping_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Scoping, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnRequestType_(RequestAbstractType_):
@@ -1285,8 +1285,8 @@ class AuthnRequestType_(RequestAbstractType_):
         self.provider_name = provider_name
 
 
-def authn_request_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnRequestType_, xml_string)
+def authn_request_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnRequestType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class AuthnRequest(AuthnRequestType_):
@@ -1300,8 +1300,8 @@ class AuthnRequest(AuthnRequestType_):
     c_cardinality = AuthnRequestType_.c_cardinality.copy()
 
 
-def authn_request_from_string(xml_string):
-    return saml2.create_class_from_xml_string(AuthnRequest, xml_string)
+def authn_request_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(AuthnRequest, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusType_(SamlBase):
@@ -1339,8 +1339,8 @@ class StatusType_(SamlBase):
         self.status_detail = status_detail
 
 
-def status_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusType_, xml_string)
+def status_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Status(StatusType_):
@@ -1354,8 +1354,8 @@ class Status(StatusType_):
     c_cardinality = StatusType_.c_cardinality.copy()
 
 
-def status_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Status, xml_string)
+def status_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Status, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusResponseType_(SamlBase):
@@ -1413,8 +1413,8 @@ class StatusResponseType_(SamlBase):
         self.consent = consent
 
 
-def status_response_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusResponseType_, xml_string)
+def status_response_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusResponseType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ResponseType_(StatusResponseType_):
@@ -1473,8 +1473,8 @@ class ResponseType_(StatusResponseType_):
         self.encrypted_assertion = encrypted_assertion or []
 
 
-def response_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ResponseType_, xml_string)
+def response_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ResponseType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ArtifactResponseType_(StatusResponseType_):
@@ -1489,8 +1489,8 @@ class ArtifactResponseType_(StatusResponseType_):
     c_any = {"namespace": "##any", "processContents": "lax", "minOccurs": "0"}
 
 
-def artifact_response_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(ArtifactResponseType_, xml_string)
+def artifact_response_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ArtifactResponseType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ManageNameIDResponse(StatusResponseType_):
@@ -1504,8 +1504,8 @@ class ManageNameIDResponse(StatusResponseType_):
     c_cardinality = StatusResponseType_.c_cardinality.copy()
 
 
-def manage_name_id_response_from_string(xml_string):
-    return saml2.create_class_from_xml_string(ManageNameIDResponse, xml_string)
+def manage_name_id_response_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ManageNameIDResponse, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class LogoutResponse(StatusResponseType_):
@@ -1519,8 +1519,8 @@ class LogoutResponse(StatusResponseType_):
     c_cardinality = StatusResponseType_.c_cardinality.copy()
 
 
-def logout_response_from_string(xml_string):
-    return saml2.create_class_from_xml_string(LogoutResponse, xml_string)
+def logout_response_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(LogoutResponse, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDMappingResponseType_(StatusResponseType_):
@@ -1578,8 +1578,8 @@ class NameIDMappingResponseType_(StatusResponseType_):
         self.encrypted_id = encrypted_id
 
 
-def name_id_mapping_response_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDMappingResponseType_, xml_string)
+def name_id_mapping_response_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDMappingResponseType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class Response(ResponseType_):
@@ -1593,8 +1593,8 @@ class Response(ResponseType_):
     c_cardinality = ResponseType_.c_cardinality.copy()
 
 
-def response_from_string(xml_string):
-    return saml2.create_class_from_xml_string(Response, xml_string)
+def response_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(Response, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class ArtifactResponse(ArtifactResponseType_):
@@ -1608,8 +1608,8 @@ class ArtifactResponse(ArtifactResponseType_):
     c_cardinality = ArtifactResponseType_.c_cardinality.copy()
 
 
-def artifact_response_from_string(xml_string):
-    return saml2.create_class_from_xml_string(ArtifactResponse, xml_string)
+def artifact_response_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(ArtifactResponse, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class NameIDMappingResponse(NameIDMappingResponseType_):
@@ -1623,8 +1623,8 @@ class NameIDMappingResponse(NameIDMappingResponseType_):
     c_cardinality = NameIDMappingResponseType_.c_cardinality.copy()
 
 
-def name_id_mapping_response_from_string(xml_string):
-    return saml2.create_class_from_xml_string(NameIDMappingResponse, xml_string)
+def name_id_mapping_response_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(NameIDMappingResponse, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 # ..................
@@ -1650,8 +1650,8 @@ class StatusCodeType_(SamlBase):
         self.value = value
 
 
-def status_code_type__from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusCodeType_, xml_string)
+def status_code_type__from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusCodeType_, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 class StatusCode(StatusCodeType_):
@@ -1665,8 +1665,8 @@ class StatusCode(StatusCodeType_):
     c_cardinality = StatusCodeType_.c_cardinality.copy()
 
 
-def status_code_from_string(xml_string):
-    return saml2.create_class_from_xml_string(StatusCode, xml_string)
+def status_code_from_string(xml_string, xml_string_isfile=False):
+    return saml2.create_class_from_xml_string(StatusCode, xml_string, xml_string_isfile=xml_string_isfile)
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1801,7 +1801,7 @@ def factory(tag, **kwargs):
     return ELEMENT_BY_TAG[tag](**kwargs)
 
 
-def any_response_from_string(xmlstr):
+def any_response_from_string(xmlstr, xml_string_isfile=False):
     resp = None
     for func in [
         status_response_type__from_string,
@@ -1811,7 +1811,7 @@ def any_response_from_string(xmlstr):
         name_id_mapping_response_from_string,
         manage_name_id_response_from_string,
     ]:
-        resp = func(xmlstr)
+        resp = func(xmlstr, xml_string_isfile=xml_string_isfile)
         if resp:
             break
 
